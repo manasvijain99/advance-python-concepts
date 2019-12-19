@@ -1,0 +1,136 @@
+#######################################################################################################################
+
+def hi(name="yasoob"):
+    def greet():
+        return "now you are in the greet() function"
+
+    def welcome():
+        return "now you are in the welcome() function"
+
+    if name == "yasoob":
+        return greet
+    else:
+        return welcome
+
+a = hi()
+print(a)
+print(a())
+
+
+#############################################################################################################
+
+def beginnerindeco(obj):
+    
+    print("still more practice is needed !!")
+    print(obj())
+    
+@beginnerindeco    # @decorator_function_name it should be mentioned right above the function which needs to be decorated.
+def learndeco():
+    print("I have learnt decorators !!")  
+    
+print(learndeco) # doubt  :  difference between learndeco() and learndeco.......why returning none?
+
+#beginnerindeco(learndeco)  #passing one function as an argument.In this way executing both.
+
+##############################################################################################################
+
+def practice(ar1,ar2,ar3):
+    print(ar1)
+    print(ar2)
+    print(ar3)
+    
+arg=(3,4,5)
+a = practice(*arg)
+print(a)
+
+##############################################################################################################
+
+def upper_d(func):
+    def func1():
+        str1=func()
+        #return "first "+ func() + "first"
+        return str1.upper()
+    return func1
+
+def split_d(func):
+    def func2():
+        str2=func()
+        return "second" + func() + "second"
+        return str2.split()                 #why this is not splitting???
+    return func2
+
+@split_d
+@upper_d
+def decofunc():
+    return "Hi I am Manasvi"
+
+print(decofunc())
+
+##################################################################################################################
+
+def outer(expr):
+    
+    def beginnerindeco(obj):
+        
+    
+        print("still more practice is needed !!")
+        print(obj() + expr)
+    
+@outer("goodluck")    # @decorator_function_name it should be mentioned right above the function which needs to be decorated.
+def learndeco():
+    print("I have learnt decorators !!")  
+    
+    
+################################################################################################################
+
+def outer_func(func):
+    def inner_func(*args):
+        list1=[]
+        list1=args[1:]
+        for i in list1:
+            if i==0:
+                return "enter correct input"
+        return func(*args)
+    return inner_func
+                                                                                 
+@outer_func                                      #usage of multiple inputs by using *args
+def div1(a,b):
+    return a/b
+@outer_func
+def div2(a,b,c):
+    return a/b/c
+    
+print(div1(2,3))
+print(div2(2,3,0))
+   
+ ###############################################################################################################
+   
+   
+   ## buliding class with decorators
+
+
+def check_name(func):
+    def checkfunc(obj):
+        if obj.name == "manasvi":
+            print("my name is also same")
+        else:
+            return func(obj)
+    return checkfunc
+    
+    
+    
+class name:
+    def __init__(self,name):
+        self.name = name
+    @check_name
+    def checkname(self):
+        print("Hi my name is:",self.name)
+        
+p1 = name("mini")
+p1.checkname()
+
+p2 = name("manasvi")
+p2.checkname()
+
+###################################################################################################################
+
