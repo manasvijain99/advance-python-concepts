@@ -1,0 +1,112 @@
+OrderedDict (remembers the order in which contents are added)
+
+dict1={}
+​
+dict1['name'] = "manasvi"
+dict1['class'] = 6
+dict1['age'] = 18
+dict1['nationality'] = "indian"
+dict1['weight'] = 50
+print(dict1)
+​
+​
+​
+from collections import OrderedDict
+​
+ordict = OrderedDict()
+​
+ordict['name'] = "mini"
+ordict['age'] = 10
+ordict['class'] = 5
+ordict['weight'] = 67
+ordict['nationality'] = "american"
+​
+print(ordict)
+​
+print(ordict.keys())
+​
+print(ordict.values())
+​
+print(ordict.items())
+####################################################################################################################
+deque (appending and clearing())
+
+
+from collections import deque
+​
+d = deque()
+d.append(1)
+d.append(2)
+d.append(3)
+​
+print(d)
+​
+d.appendleft(4)
+d.appendleft(5)
+d.appendleft(6)   #as element keeps on adding each element will shift to the right
+​
+print(d)
+​
+print(d.count(3))  #count() number of occurences of a particular element
+​
+m = d.extend([1,2,3])
+print(d)     # when I gave print(m)  why none was printed??
+​
+n = d.append([1,2,3])
+print(d)
+​
+d.appendleft([1,2,3])
+print(d)
+​
+d.extendleft([1,2,3])
+print(d)
+​
+d.pop()
+print(d)
+​
+d.remove(2)
+d
+###############################################################################################################
+counter (it will count and give result in the form of key and value.It will form a dict)
+
+from collections import Counter
+​
+c = Counter("mumbai")
+print(c)
+​
+print(list(c.elements()))
+​
+print(c.most_common(2))
+#####################################################################################################################
+defaultdict (doesnot give key error if an key is not present unlike dict)
+
+from collections import defaultdict
+​
+s1=[('yellow',1),('red',2),('green',2),('orange',3)]
+d = defaultdict(list) #default will be an empty list
+for k,v in s1:
+    d[k].append(v)
+    
+print(d.items())
+​
+​
+s2 = 'mississippi'
+d1 = defaultdict(int) #default value of int is 0
+for obj in s2:
+    d1[obj]+=1
+    
+print(d1.items())
+###################################################################################################################
+namedtuple(there is no need of indexing unkile tuples)
+
+from collections import namedtuple
+​
+student1 = namedtuple('student1',['name','age','rollno'])
+obj = student1('manasvi',20,100)
+​
+print("name:",obj.name)
+print("age:",obj.age)
+print("rollno:",obj.rollno)
+print(student._fields)
+
+################################################################################################################
