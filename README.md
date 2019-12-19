@@ -1,1 +1,1 @@
-# Here I have stores what all I have learnt about decorators
+# Here I have stored some advance python concepts
