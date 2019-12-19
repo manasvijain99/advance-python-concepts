@@ -1,1 +1,1 @@
-# Here some basic codes about decorators in python I have been storing
+# Here I have stores what all I have learnt about decorators
